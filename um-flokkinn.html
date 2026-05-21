@@ -3,78 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Um flokkinn - Betri Menn</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <script src="../images.js"></script>
+  <title>Um flokkinn — Betri Menn</title>
+  <link rel="stylesheet" href="assets/css/shared.css">
   <style>
-    :root {
-      --green: #09a865;
-      --green-dark: #077a47;
-      --black: #09a865;
-      --white: #0a2e18;
-      --grey: #07904f;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--black); color: var(--white); }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 3rem;
-      background: rgba(9,168,101,0.95); backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(9,168,101,0.15);
-    }
-    .nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
-    .nav-logo img { height: 42px; width: 42px; object-fit: contain; border-radius: 8px; }
-    .nav-logo span { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--white); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { color: rgba(0,0,0,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--green); }
-    .nav-cta { background: var(--green); color: var(--black) !important; padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 600 !important; transition: background 0.2s !important; }
-    .nav-cta:hover { background: #0bc673 !important; }
-
-    .page-hero {
-      padding: 10rem 3rem 5rem;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(0,0,0,0.6); margin-bottom: 1rem; }
-    .page-hero h1 {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -0.04em; line-height: 0.95;
-      margin-bottom: 1.5rem;
-      color: #0a2e18;
-      animation: fadeUp 0.7s ease 0.2s both;
-    }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .page-hero p { color: rgba(0,0,0,0.65); font-size: 1.15rem; line-height: 1.7; animation: fadeUp 0.7s ease 0.4s both; }
-
     .content-section { max-width: 900px; margin: 0 auto; padding: 0 3rem 5rem; }
 
     .speech-block {
-      background: rgba(255,255,255,0.18);
-      border-left: 3px solid rgba(0,0,0,0.4);
+      background: rgba(255,255,255,0.25);
+      border-left: 3px solid #0a2e18;
       border-radius: 0 16px 16px 0;
-      padding: 2.5rem;
-      margin-bottom: 3rem;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
       font-size: 1.05rem;
       line-height: 1.8;
       color: rgba(0,0,0,0.85);
-      opacity: 0; transform: translateY(30px);
-      transition: all 0.6s ease;
     }
-    .speech-block.visible { opacity: 1; transform: translateY(0); }
-    .speech-block strong { color: var(--green); font-weight: 600; }
+    .speech-block strong { color: #0a2e18; font-weight: 700; }
 
-    .highlight-quote {
+    .quote-block {
       text-align: center;
       padding: 4rem 2rem;
-      position: relative;
     }
-    .highlight-quote blockquote {
+    .quote-block blockquote {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
       font-size: clamp(1.8rem, 4vw, 3rem);
@@ -82,65 +32,55 @@
       letter-spacing: -0.02em;
       color: #0a2e18;
     }
-    .highlight-quote blockquote span { color: var(--green); }
-    .highlight-quote cite {
+    .quote-block blockquote span { color: #ffffff; }
+    .quote-block cite {
       display: block; margin-top: 1.5rem;
-      font-size: 0.85rem; color: rgba(0,0,0,0.45);
+      font-size: 0.85rem; color: rgba(0,0,0,0.5);
       font-style: normal; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    .roles-heading {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.8rem;
+      color: #0a2e18; margin-bottom: 0.5rem;
     }
 
     .team-roles {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
+
     .role-card {
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(9,168,101,0.1);
+      background: rgba(255,255,255,0.25);
+      border: 1px solid rgba(0,0,0,0.1);
       border-radius: 14px;
-      padding: 1.5rem;
-      opacity: 0; transform: translateY(20px);
-      transition: all 0.4s ease;
+      padding: 1.4rem;
     }
-    .role-card.visible { opacity: 1; transform: translateY(0); }
-    .role-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; color: rgba(0,0,0,0.55); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .role-names { color: rgba(0,0,0,0.8); font-size: 0.95rem; line-height: 1.6; }
-
-    .green-banner {
-      background: #0a2e18; padding: 4rem 3rem; text-align: center; margin-top: 2rem;
+    .role-title {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 0.75rem; color: rgba(0,0,0,0.55);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 0.4rem;
     }
-    .green-banner h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2rem, 5vw, 4rem); color: #09a865; letter-spacing: -0.03em; }
-    .green-banner p { color: rgba(255,255,255,0.85); margin-top: 1rem; font-size: 1.1rem; }
-    .green-banner a { display: inline-block; margin-top: 2rem; background: #09a865; color: #0a2e18; padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 700; transition: all 0.25s; }
-    .green-banner a:hover { background: #111; transform: translateY(-3px); }
-
-    footer { background: rgba(0,0,0,0.15); border-top: 1px solid rgba(9,168,101,0.1); padding: 3rem; display: flex; align-items: center; justify-content: space-between; }
-    .footer-logo { display: flex; align-items: center; gap: 0.8rem; }
-    .footer-logo img { height: 36px; object-fit: contain; border-radius: 6px; }
-    .footer-logo span { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { color: rgba(0,0,0,0.55); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--green); }
-    .footer-copy { font-size: 0.8rem; color: rgba(0,0,0,0.35); }
+    .role-names { color: #0a2e18; font-size: 0.95rem; font-weight: 500; }
 
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .page-hero, .content-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .content-section { padding-left: 1.5rem; padding-right: 1.5rem; }
       .team-roles { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 2rem; text-align: center; }
     }
   </style>
 </head>
 <body>
+
   <nav>
-    <a href="../index.html" class="nav-logo">
-      <img id="nav-logo" alt="logo">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Betri Menn">
       <span>Betri Menn</span>
     </a>
     <ul class="nav-links">
-      <li><a href="../index.html">Forsíða</a></li>
+      <li><a href="index.html">Forsíða</a></li>
       <li><a href="um-flokkinn.html" class="active">Um flokkinn</a></li>
       <li><a href="frambjodendur.html">Frambjóðendur</a></li>
       <li><a href="stefna.html">Stefna</a></li>
@@ -150,8 +90,8 @@
 
   <div class="page-hero">
     <p class="section-label">Um flokkinn</p>
-    <h1>Við erum <span style="color:var(--green)">Betri Menn</span></h1>
-    <p>Við höfum stofnað þennan flokk vegna þess að við trúum því að Ísland geti orðið betra. Samfélagið okkar hefur gengið í gegnum miklar breytingar og við viljum vera þar til þegar tíminn kallar á breytingar.</p>
+    <h1>Við erum <span style="color:#ffffff">Betri Menn</span></h1>
+    <p>Við höfum stofnað þennan flokk vegna þess að við trúum því að Ísland geti orðið betra.</p>
   </div>
 
   <div class="content-section">
@@ -160,83 +100,60 @@
       <p>Halló, dömur mínar og herrar og velkomin hér á þennan fund. Við erum glænýr flokkur sem fer að nafninu <strong>Betri menn</strong> og við erum stödd hér í dag vegna þess að við trúum því að okkar land og okkar samfélag geti orðið betra. Þess vegna stofnuðum við þennan flokk.</p>
     </div>
 
-    <div class="speech-block" style="transition-delay: 0.1s;">
+    <div class="speech-block">
       <p>Hverjum hér inni finnst íslensk náttúra falleg? Okkur finnst mjög mikilvægt að vernda náttúruna og halda Íslandi hreinu og fallegu. Við viljum <strong>hraðar loftslagsaðgerðir</strong> sem minnka mengun, meiri endurnýtingu og mun minni matarsóun. Ef við byrjum ekki að hugsa um jörðina núna verður framtíðin bara verri fyrir börn okkar og komandi kynslóðir.</p>
     </div>
 
-    <div class="speech-block" style="transition-delay: 0.2s;">
+    <div class="speech-block">
       <p>Ungt fólk á Íslandi á erfitt með að komast í eigið húsnæði. <strong>Fjárfestir kaupa upp íbúðir</strong> og verðir hafa hækkað gríðarlega. Við viljum ódýrara húsnæði svo næstu kynslóðir geti byggt sér framtíð hér á landi.</p>
     </div>
 
-    <div class="speech-block" style="transition-delay: 0.3s;">
+    <div class="speech-block">
       <p>Betri menn vilja <strong>jafnrétti</strong> án þess að eyða náttúrulegum mun. Jöfn laun fyrir jafna vinnu, betri möguleikar fyrir bæði kynin og foreldrar fá að ráða hvernig þeir skipta fæðingarorlofi.</p>
     </div>
 
-    <div class="speech-block" style="transition-delay: 0.4s;">
-      <p>Við trúum á <strong>landamærastefnu með vitsmunum</strong>. Við viljum velkomna þá sem leggja sitt að mörkum og borga skatta. En við getum ekki bara hleypt öllum inn án stjórnkerfis. Ísland er lítið land og við verðum að passa á kerfin okkar þannig að við missum ekki stjórnina.</p>
+    <div class="speech-block">
+      <p>Við trúum á <strong>landamærastefnu með vitsmunum</strong>. Við viljum velkomna þá sem leggja sitt að mörkum og borga skatta. En við getum ekki bara hleypt öllum inn án stjórnkerfis. Ísland er lítið land og við verðum að passa á kerfin okkar.</p>
     </div>
 
-    <div class="speech-block" style="transition-delay: 0.5s;">
+    <div class="speech-block">
       <p><strong>Við erum Betri menn fyrir betra Ísland.</strong></p>
     </div>
 
-    <div class="highlight-quote">
-      <blockquote>"Góðir, betri, <span>bestu menn</span>"<br>Flokkurinn</blockquote>
+    <div class="quote-block">
+      <blockquote>"Góðir, betri, <span>bestu menn"</span></blockquote>
       <cite>Slagorð Betri Menn</cite>
     </div>
 
-    <h2 style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.8rem; margin-bottom: 0.5rem;">Hlutverkaskipting</h2>
-    <p style="color: rgba(0,0,0,0.6); margin-bottom: 0.5rem;">Við erum skipulagt lið þar sem allir hafa ákveðið hlutverk.</p>
+    <p class="roles-heading">Hlutverkaskipting</p>
+    <p style="color:rgba(0,0,0,0.65); margin-bottom:0">Við erum skipulagt lið þar sem allir hafa ákveðið hlutverk.</p>
 
     <div class="team-roles">
-      <div class="role-card">
-        <div class="role-title">Leiðtogi</div>
-        <div class="role-names">Jón</div>
-      </div>
-      <div class="role-card" style="transition-delay:0.07s">
-        <div class="role-title">Ræðumenn</div>
-        <div class="role-names">Aron, Jón</div>
-      </div>
-      <div class="role-card" style="transition-delay:0.14s">
-        <div class="role-title">Fjölmiðlafulltrúar</div>
-        <div class="role-names">Ari, Hlynur, Stefán, Anton</div>
-      </div>
-      <div class="role-card" style="transition-delay:0.21s">
-        <div class="role-title">Samfélagsmiðlastjórar</div>
-        <div class="role-names">Óskar, Anton</div>
-      </div>
-      <div class="role-card" style="transition-delay:0.28s">
-        <div class="role-title">Kosningastjórar</div>
-        <div class="role-names">Almar, Ivan</div>
-      </div>
-      <div class="role-card" style="transition-delay:0.35s">
-        <div class="role-title">Bæklingur og plakat</div>
-        <div class="role-names">Óskar, Rafael, Hlynur</div>
-      </div>
-      <div class="role-card" style="transition-delay:0.42s">
-        <div class="role-title">Logo</div>
-        <div class="role-names">Rafael, Aron</div>
-      </div>
-      <div class="role-card" style="transition-delay:0.49s">
-        <div class="role-title">Stefnumál</div>
-        <div class="role-names">Anton, Almar</div>
-      </div>
+      <div class="role-card"><div class="role-title">Leiðtogi</div><div class="role-names">Jón</div></div>
+      <div class="role-card"><div class="role-title">Ræðumenn</div><div class="role-names">Aron, Jón</div></div>
+      <div class="role-card"><div class="role-title">Fjölmiðlafulltrúar</div><div class="role-names">Ari, Hlynur, Stefán, Anton</div></div>
+      <div class="role-card"><div class="role-title">Samfélagsmiðlastjórar</div><div class="role-names">Óskar, Anton</div></div>
+      <div class="role-card"><div class="role-title">Kosningastjórar</div><div class="role-names">Almar, Ivan</div></div>
+      <div class="role-card"><div class="role-title">Bæklingur og plakat</div><div class="role-names">Óskar, Rafael, Hlynur</div></div>
+      <div class="role-card"><div class="role-title">Logo</div><div class="role-names">Rafael, Aron</div></div>
+      <div class="role-card"><div class="role-title">Stefnumál</div><div class="role-names">Anton, Almar</div></div>
     </div>
+
   </div>
 
-  <div class="green-banner">
+  <div class="dark-banner">
     <h2>Settu X við B</h2>
     <p>Ísland á skilið betra. Við erum þar til.</p>
-    <a href="stefna.html">Skoða stefnuna →</a>
+    <a href="stefna.html" class="btn-light" style="margin-top:2rem">Skoða stefnuna →</a>
   </div>
 
   <footer>
     <div class="footer-logo">
-      <img id="footer-logo" alt="logo">
+      <img src="assets/logo.png" alt="Betri Menn">
       <span>Betri Menn</span>
     </div>
     <ul class="footer-links">
-      <li><a href="../index.html">Forsíða</a></li>
+      <li><a href="index.html">Forsíða</a></li>
       <li><a href="um-flokkinn.html">Um flokkinn</a></li>
       <li><a href="frambjodendur.html">Frambjóðendur</a></li>
       <li><a href="stefna.html">Stefna</a></li>
@@ -244,15 +161,5 @@
     <p class="footer-copy">© 2025 Betri Menn &bull; X-B</p>
   </footer>
 
-  <script>
-    document.getElementById('nav-logo').src = IMAGES.logo;
-    document.getElementById('footer-logo').src = IMAGES.logo;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.speech-block, .role-card').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
