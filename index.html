@@ -3,117 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Betri Menn - Góðir, Betri, Bestu Menn</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <script src="images.js"></script>
+  <title>Betri Menn — Góðir, Betri, Bestu Menn</title>
+  <link rel="stylesheet" href="assets/css/shared.css">
   <style>
-    :root {
-      --green: #09a865;
-      --green-dark: #077a47;
-      --green-deeper: #055c33;
-      --black: #09a865;
-      --white: #0a2e18;
-      --grey: #07904f;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #09a865;
-      color: #0f2d1a;
-      overflow-x: hidden;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 3rem;
-      background: rgba(9,168,101,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(9,168,101,0.15);
-      animation: slideDown 0.6s ease both;
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      text-decoration: none;
-    }
-
-    .nav-logo img {
-      height: 42px;
-      width: 42px;
-      object-fit: contain;
-      border-radius: 8px;
-    }
-
-    .nav-logo span {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.3rem;
-      color: #0a2e18;
-      letter-spacing: -0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: rgba(0,0,0,0.7);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 0; right: 0;
-      height: 2px;
-      background: var(--green);
-      transform: scaleX(0);
-      transition: transform 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--green); }
-    .nav-links a:hover::after { transform: scaleX(1); }
-
-    .nav-cta {
-      background: #0a2e18;
-      color: #ffffff !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 100px;
-      font-weight: 600 !important;
-      transition: background 0.2s, transform 0.2s !important;
-    }
-
-    .nav-cta:hover { background: #07904f !important; transform: scale(1.05); }
-    .nav-cta::after { display: none !important; }
-
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -122,25 +14,6 @@
       justify-content: center;
       text-align: center;
       padding: 8rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(9,168,101,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-bg-grid {
-      position: absolute;
-      inset: 0;
-      background-image: 
-        linear-gradient(rgba(9,168,101,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(9,168,101,0.05) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
     }
 
     .hero-logo {
@@ -149,20 +22,14 @@
       object-fit: contain;
       border-radius: 20px;
       margin-bottom: 2rem;
-      animation: popIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
-      filter: drop-shadow(0 0 40px rgba(9,168,101,0.4));
-    }
-
-    @keyframes popIn {
-      from { transform: scale(0.5); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.2));
     }
 
     .hero-badge {
       display: inline-block;
       background: rgba(0,0,0,0.12);
-      border: 1px solid rgba(0,0,0,0.2);
-      color: var(--green);
+      border: 1px solid rgba(0,0,0,0.18);
+      color: #0a2e18;
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.15em;
@@ -170,7 +37,6 @@
       padding: 0.4rem 1rem;
       border-radius: 100px;
       margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease 0.5s both;
     }
 
     .hero h1 {
@@ -181,18 +47,16 @@
       letter-spacing: -0.04em;
       margin-bottom: 1.5rem;
       color: #0a2e18;
-      animation: fadeUp 0.7s ease 0.6s both;
     }
 
-    .hero h1 .green { color: var(--green); }
+    .hero h1 .light { color: rgba(255,255,255,0.9); }
 
     .hero-tagline {
       font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      color: rgba(0,0,0,0.65);
-      font-weight: 300;
+      color: rgba(0,0,0,0.7);
+      font-weight: 400;
       margin-bottom: 3rem;
       max-width: 500px;
-      animation: fadeUp 0.7s ease 0.75s both;
     }
 
     .hero-buttons {
@@ -200,103 +64,19 @@
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
-      animation: fadeUp 0.7s ease 0.9s both;
     }
 
-    .btn-primary {
-      background: #0a2e18;
-      color: #ffffff;
-      padding: 0.9rem 2.2rem;
-      border-radius: 100px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 0.02em;
-      transition: all 0.25s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn-primary:hover {
-      background: #07904f;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(9,168,101,0.4);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      padding: 0.9rem 2.2rem;
-      border-radius: 100px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      border: 1px solid rgba(0,0,0,0.3);
-      transition: all 0.25s;
-    }
-
-    .btn-secondary:hover {
-      border-color: #0a2e18;
-      color: #0a2e18;
-      transform: translateY(-3px);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: rgba(0,0,0,0.4);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      animation: fadeUp 1s ease 1.2s both;
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
-      animation: scrollPulse 2s ease infinite;
-    }
-
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.1); }
-    }
-
-    /* STATS STRIP */
     .stats-strip {
-      border-top: 1px solid rgba(9,168,101,0.15);
-      border-bottom: 1px solid rgba(9,168,101,0.15);
-      padding: 2rem 3rem;
+      border-top: 1px solid rgba(0,0,0,0.12);
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+      padding: 2.5rem 3rem;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
-      background: rgba(9,168,101,0.04);
+      background: rgba(0,0,0,0.08);
     }
 
-    .stat-item {
-      text-align: center;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.5s ease;
-    }
-
-    .stat-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .stat-item { text-align: center; }
 
     .stat-number {
       font-family: 'Syne', sans-serif;
@@ -308,40 +88,19 @@
 
     .stat-label {
       font-size: 0.8rem;
-      color: rgba(0,0,0,0.55);
+      color: rgba(0,0,0,0.6);
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-top: 0.3rem;
+      margin-top: 0.4rem;
     }
 
-    /* SECTIONS */
-    section {
+    .content-section {
       padding: 6rem 3rem;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      letter-spacing: -0.03em;
-      line-height: 1;
-      margin-bottom: 1.5rem;
-      color: #0a2e18;
-    }
-
-    /* YFIRLIT STEFNU */
-    .policy-preview {
+    .policy-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
@@ -349,147 +108,86 @@
     }
 
     .policy-card {
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(9,168,101,0.1);
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(0,0,0,0.12);
       border-radius: 16px;
       padding: 2rem;
       text-decoration: none;
-      color: var(--white);
+      color: #0a2e18;
       transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .policy-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .policy-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(9,168,101,0.08) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s;
     }
 
     .policy-card:hover {
-      border-color: rgba(0,0,0,0.3);
+      background: rgba(255,255,255,0.32);
+      border-color: rgba(0,0,0,0.25);
       transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
     }
 
-    .policy-card:hover::before { opacity: 1; }
-
-    .policy-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
+    .policy-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 
     .policy-card h3 {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
       font-size: 1.15rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
+      color: #0a2e18;
     }
 
     .policy-card p {
       font-size: 0.9rem;
-      color: rgba(0,0,0,0.65);
+      color: rgba(0,0,0,0.7);
       line-height: 1.6;
     }
 
     .policy-card .arrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      color: var(--green);
+      display: inline-block;
+      color: #0a2e18;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-top: 1.2rem;
-      transition: gap 0.2s;
     }
 
-    .policy-card:hover .arrow { gap: 0.7rem; }
-
-    /* FRAMBJÓÐENDUR PREVIEW */
-    .candidates-row {
-      display: flex;
+    .candidate-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
       margin-top: 3rem;
-      overflow: hidden;
     }
 
     .candidate-thumb {
-      flex: 1;
       aspect-ratio: 3/4;
       border-radius: 12px;
       overflow: hidden;
       position: relative;
-      cursor: pointer;
-      transition: flex 0.4s ease;
-      opacity: 0;
+      text-decoration: none;
+      transition: transform 0.3s;
     }
 
-    .candidate-thumb.visible { opacity: 1; }
-
-    .candidate-thumb:hover { flex: 1.8; }
+    .candidate-thumb:hover { transform: translateY(-4px); }
 
     .candidate-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: top;
-      transition: transform 0.4s;
-      filter: grayscale(20%);
-    }
-
-    .candidate-thumb:hover img {
-      transform: scale(1.05);
-      filter: grayscale(0%);
     }
 
     .candidate-thumb-overlay {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
-    }
-
-    .candidate-thumb-name {
-      position: absolute;
-      bottom: 0.8rem;
-      left: 0;
-      right: 0;
-      text-align: center;
+      bottom: 0; left: 0; right: 0;
+      padding: 1rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: #fff;
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: 0.75rem;
-      opacity: 0;
-      transform: translateY(5px);
-      transition: all 0.3s;
-    }
-
-    .candidate-thumb:hover .candidate-thumb-name {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .view-all-btn {
-      display: block;
       text-align: center;
-      margin-top: 2.5rem;
     }
 
-    /* SLAGORÐ BANNER */
     .slogan-banner {
       background: #0a2e18;
-      padding: 4rem 3rem;
+      padding: 5rem 3rem;
       text-align: center;
-      overflow: hidden;
-      position: relative;
     }
 
     .slogan-text {
@@ -503,88 +201,15 @@
 
     .slogan-sub {
       font-size: 1.1rem;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.7);
       margin-top: 1rem;
-      font-weight: 400;
     }
 
-    .slogan-banner .btn-black {
-      display: inline-block;
-      margin-top: 2rem;
-      background: var(--black);
-      color: var(--green);
-      padding: 0.85rem 2rem;
-      border-radius: 100px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: all 0.25s;
-    }
-
-    .slogan-banner .btn-black:hover {
-      background: #111;
-      transform: translateY(-3px);
-    }
-
-    /* FOOTER */
-    footer {
-      background: rgba(0,0,0,0.15);
-      border-top: 1px solid rgba(9,168,101,0.1);
-      padding: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .footer-logo img {
-      height: 36px;
-      object-fit: contain;
-      border-radius: 6px;
-    }
-
-    .footer-logo span {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .footer-links a {
-      color: rgba(0,0,0,0.55);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--green); }
-
-    .footer-copy {
-      font-size: 0.8rem;
-      color: rgba(0,0,0,0.35);
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      section { padding: 4rem 1.5rem; }
-      .policy-preview { grid-template-columns: 1fr; }
+      .content-section { padding: 4rem 1.5rem; }
+      .policy-grid { grid-template-columns: 1fr; }
       .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; }
-      .candidates-row { flex-wrap: wrap; }
-      .candidate-thumb { flex: none; width: calc(33% - 0.7rem); }
-      footer { flex-direction: column; gap: 2rem; text-align: center; }
-      .footer-links { flex-wrap: wrap; justify-content: center; }
+      .candidate-strip { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
 </head>
@@ -592,174 +217,133 @@
 
   <nav>
     <a href="index.html" class="nav-logo">
-      <img id="nav-logo-img" alt="Betri Menn logo">
+      <img src="assets/logo.png" alt="Betri Menn">
       <span>Betri Menn</span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html">Forsíða</a></li>
-      <li><a href="pages/um-flokkinn.html">Um flokkinn</a></li>
-      <li><a href="pages/frambjodendur.html">Frambjóðendur</a></li>
-      <li><a href="pages/stefna.html">Stefna</a></li>
-      <li><a href="pages/stefna.html" class="nav-cta">Settu X við B</a></li>
+      <li><a href="index.html" class="active">Forsíða</a></li>
+      <li><a href="um-flokkinn.html">Um flokkinn</a></li>
+      <li><a href="frambjodendur.html">Frambjóðendur</a></li>
+      <li><a href="stefna.html">Stefna</a></li>
+      <li><a href="stefna.html" class="nav-cta">Settu X við B</a></li>
     </ul>
   </nav>
 
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-bg-grid"></div>
-    <img id="hero-logo" class="hero-logo" alt="Betri Menn">
-    <span class="hero-badge">Flokkurinn X-B &bull; Góðir, Betri, Bestu Menn</span>
-    <h1>Betri<br><span class="green">Menn</span></h1>
+    <img src="assets/logo.png" class="hero-logo" alt="Betri Menn">
+    <span class="hero-badge">Flokkurinn X-B • Góðir, Betri, Bestu Menn</span>
+    <h1>Betri<br><span class="light">Menn</span></h1>
     <p class="hero-tagline">Við trúum að Ísland geti orðið betra. Fyrir okkur öll.</p>
     <div class="hero-buttons">
-      <a href="pages/stefna.html" class="btn-primary">Skoða stefnuna →</a>
-      <a href="pages/frambjodendur.html" class="btn-secondary">Sjá frambjóðendur</a>
-    </div>
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      Fletta niður
+      <a href="stefna.html" class="btn-primary">Skoða stefnuna →</a>
+      <a href="frambjodendur.html" class="btn-secondary">Sjá frambjóðendur</a>
     </div>
   </section>
 
   <div class="stats-strip">
-    <div class="stat-item">
-      <div class="stat-number">10</div>
-      <div class="stat-label">Frambjóðendur</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">5</div>
-      <div class="stat-label">Stefnumál</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">X-B</div>
-      <div class="stat-label">Flokksstafir</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">1</div>
-      <div class="stat-label">Markmið: Betra Ísland</div>
+    <div class="stat-item"><div class="stat-number">10</div><div class="stat-label">Frambjóðendur</div></div>
+    <div class="stat-item"><div class="stat-number">6</div><div class="stat-label">Stefnumál</div></div>
+    <div class="stat-item"><div class="stat-number">X-B</div><div class="stat-label">Flokksstafir</div></div>
+    <div class="stat-item"><div class="stat-number">1</div><div class="stat-label">Markmið</div></div>
+  </div>
+
+  <div class="content-section">
+    <p class="section-label">Stefnumál okkar</p>
+    <h2 class="section-title">Hvað stöndum við fyrir?</h2>
+    <p style="color:rgba(0,0,0,0.7); max-width:500px; line-height:1.7;">Sex skýr stefnumál. Engin óræð loforð.</p>
+
+    <div class="policy-grid">
+      <a href="stefna.html" class="policy-card">
+        <div class="policy-icon">🌿</div>
+        <h3>Hraðar loftslagsaðgerðir</h3>
+        <p>Minni mengun, meiri endurnýting og betri samgöngur.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
+      <a href="stefna.html" class="policy-card">
+        <div class="policy-icon">🏠</div>
+        <h3>Ódýrara húsnæði</h3>
+        <p>Ungt fólk á rétt á því að geta keypt sér húsnæði.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
+      <a href="stefna.html" class="policy-card">
+        <div class="policy-icon">🏥</div>
+        <h3>Betri heilbrigðisþjónusta</h3>
+        <p>Of fáir hjúkrunarfræðingar og of langir biðtímar.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
+      <a href="stefna.html" class="policy-card">
+        <div class="policy-icon">⚖️</div>
+        <h3>Kynjaréttlæti</h3>
+        <p>Jöfn laun fyrir jafna vinnu fyrir öll kyn.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
+      <a href="stefna.html" class="policy-card">
+        <div class="policy-icon">💪</div>
+        <h3>Heilbrigt líf</h3>
+        <p>Betri heilsufræði í skólum og aðgangur að rækt.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
+      <a href="stefna.html" class="policy-card">
+        <div class="policy-icon">🛂</div>
+        <h3>Skynsamleg landamærastefna</h3>
+        <p>Velkomna þá sem leggja sitt af mörkum.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
     </div>
   </div>
 
-  <section>
-    <p class="section-label">Stefnumál okkar</p>
-    <h2 class="section-title">Hvað stöndum<br>við fyrir?</h2>
-    <p style="color: rgba(0,0,0,0.65); max-width: 500px; line-height: 1.7;">Við höfum sex skýr stefnumál sem við viljum vinna að. Engin óræð loforð, aðeins raunveruleg verkefni.</p>
-
-    <div class="policy-preview">
-      <a href="pages/stefna.html#loftslag" class="policy-card">
-        <div class="policy-icon">🌿</div>
-        <h3>Hraðar loftslagsaðgerðir</h3>
-        <p>Minni mengun, meiri endurnýting og betri samgöngur. Við þurfum að byrja núna.</p>
-        <span class="arrow">Lesa meira →</span>
-      </a>
-      <a href="pages/stefna.html#husnaedi" class="policy-card">
-        <div class="policy-icon">🏠</div>
-        <h3>Ódýrara húsnæði</h3>
-        <p>Ungt fólk á rétt á því að geta keypt sér húsnæði. Fjárfestum að kaupa upp íbúðir er vandinn.</p>
-        <span class="arrow">Lesa meira →</span>
-      </a>
-      <a href="pages/stefna.html#heilbrigdi" class="policy-card">
-        <div class="policy-icon">🏥</div>
-        <h3>Betri heilbrigðisþjónusta</h3>
-        <p>Of fáir hjúkrunarfræðingar og of langir biðtímar. Þetta er óásættanlegt.</p>
-        <span class="arrow">Lesa meira →</span>
-      </a>
-      <a href="pages/stefna.html#kynjarettlaeti" class="policy-card">
-        <div class="policy-icon">⚖️</div>
-        <h3>Kynjaréttlæti</h3>
-        <p>Jöfn laun fyrir jafna vinnu og betri möguleikar fyrir öll kyn. Foreldrar ráða fæðingarorlofi.</p>
-        <span class="arrow">Lesa meira →</span>
-      </a>
-      <a href="pages/stefna.html#heilsa" class="policy-card">
-        <div class="policy-icon">💪</div>
-        <h3>Heilbrigt lif</h3>
-        <p>Betri heilsufræði í skólum og auðveldari aðgangur að rækt, sundi og útivist.</p>
-        <span class="arrow">Lesa meira →</span>
-      </a>
-      <a href="pages/stefna.html#landamaeri" class="policy-card">
-        <div class="policy-icon">🛂</div>
-        <h3>Skynsamleg landamærastefna</h3>
-        <p>Við þurfum stjórn. Við viljum velkomna þá sem leggja sitt af mörkum og greiða skatta.</p>
-        <span class="arrow">Lesa meira →</span>
-      </a>
-    </div>
-  </section>
-
-  <section>
+  <div class="content-section" style="padding-top:0">
     <p class="section-label">Liðið okkar</p>
     <h2 class="section-title">Frambjóðendurnir</h2>
-    <p style="color: rgba(0,0,0,0.65); max-width: 500px; line-height: 1.7; margin-bottom: 0;">Við erum tíu sterkir einstaklingar með eitt markmið: betra Ísland.</p>
-    <div class="candidates-row" id="candidates-row"></div>
-    <div class="view-all-btn">
-      <a href="pages/frambjodendur.html" class="btn-primary">Sjá alla frambjóðendur →</a>
+    <p style="color:rgba(0,0,0,0.7); max-width:500px; line-height:1.7;">Tíu sterkir einstaklingar með eitt markmið.</p>
+
+    <div class="candidate-strip">
+      <a href="frambjodendur.html" class="candidate-thumb">
+        <img src="assets/jon.jpeg" alt="Jón">
+        <div class="candidate-thumb-overlay">Jón</div>
+      </a>
+      <a href="frambjodendur.html" class="candidate-thumb">
+        <img src="assets/oskar.jpeg" alt="Óskar">
+        <div class="candidate-thumb-overlay">Óskar</div>
+      </a>
+      <a href="frambjodendur.html" class="candidate-thumb">
+        <img src="assets/rafael.jpeg" alt="Rafael">
+        <div class="candidate-thumb-overlay">Rafael</div>
+      </a>
+      <a href="frambjodendur.html" class="candidate-thumb">
+        <img src="assets/aron.jpeg" alt="Aron">
+        <div class="candidate-thumb-overlay">Aron</div>
+      </a>
+      <a href="frambjodendur.html" class="candidate-thumb">
+        <img src="assets/anton.jpeg" alt="Anton">
+        <div class="candidate-thumb-overlay">Anton</div>
+      </a>
     </div>
-  </section>
+
+    <div style="text-align:center; margin-top:2.5rem">
+      <a href="frambjodendur.html" class="btn-primary">Sjá alla frambjóðendur →</a>
+    </div>
+  </div>
 
   <div class="slogan-banner">
     <div class="slogan-text">Góðir. Betri. Bestu Menn.</div>
     <p class="slogan-sub">Ísland á skilið betra. Við erum þar til.</p>
-    <a href="pages/stefna.html" class="btn-black">Settu X við B →</a>
+    <a href="stefna.html" class="btn-light" style="margin-top:2rem">Settu X við B →</a>
   </div>
 
   <footer>
     <div class="footer-logo">
-      <img id="footer-logo-img" alt="Betri Menn">
+      <img src="assets/logo.png" alt="Betri Menn">
       <span>Betri Menn</span>
     </div>
     <ul class="footer-links">
       <li><a href="index.html">Forsíða</a></li>
-      <li><a href="pages/um-flokkinn.html">Um flokkinn</a></li>
-      <li><a href="pages/frambjodendur.html">Frambjóðendur</a></li>
-      <li><a href="pages/stefna.html">Stefna</a></li>
+      <li><a href="um-flokkinn.html">Um flokkinn</a></li>
+      <li><a href="frambjodendur.html">Frambjóðendur</a></li>
+      <li><a href="stefna.html">Stefna</a></li>
     </ul>
-    <p class="footer-copy">© 2025 Betri Menn &bull; X-B</p>
+    <p class="footer-copy">© 2025 Betri Menn • X-B</p>
   </footer>
 
-  <script>
-    // Set images from base64
-    document.getElementById('nav-logo-img').src = IMAGES.logo;
-    document.getElementById('hero-logo').src = IMAGES.logo;
-    document.getElementById('footer-logo-img').src = IMAGES.logo;
-
-    // Candidate thumbnails on homepage
-    const candidates = [
-      { key: 'jon', name: 'Jón' },
-      { key: 'oskar', name: 'Óskar' },
-      { key: 'rafael', name: 'Rafael' },
-      { key: 'aron', name: 'Aron' },
-      { key: 'anton', name: 'Anton' },
-    ];
-
-    const row = document.getElementById('candidates-row');
-    candidates.forEach((c, i) => {
-      const div = document.createElement('a');
-      div.href = 'pages/frambjodendur.html';
-      div.className = 'candidate-thumb';
-      div.style.transitionDelay = (i * 0.1) + 's';
-      div.innerHTML = `
-        <img src="${IMAGES[c.key]}" alt="${c.name}" loading="lazy">
-        <div class="candidate-thumb-overlay"></div>
-        <div class="candidate-thumb-name">${c.name}</div>
-      `;
-      row.appendChild(div);
-    });
-
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(el => {
-        if (el.isIntersecting) el.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.stat-item, .policy-card, .candidate-thumb').forEach(el => observer.observe(el));
-
-    // Stagger policy cards
-    document.querySelectorAll('.policy-card').forEach((card, i) => {
-      card.style.transitionDelay = (i * 0.08) + 's';
-    });
-    document.querySelectorAll('.stat-item').forEach((s, i) => {
-      s.style.transitionDelay = (i * 0.1) + 's';
-    });
-  </script>
 </body>
 </html>

@@ -3,51 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frambjóðendur - Betri Menn</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <script src="../images.js"></script>
+  <title>Frambjóðendur — Betri Menn</title>
+  <link rel="stylesheet" href="assets/css/shared.css">
   <style>
-    :root {
-      --green: #09a865;
-      --black: #09a865;
-      --white: #0a2e18;
-      --grey: #07904f;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--black); color: var(--white); }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 3rem;
-      background: rgba(9,168,101,0.95); backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(9,168,101,0.15);
-    }
-    .nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
-    .nav-logo img { height: 42px; width: 42px; object-fit: contain; border-radius: 8px; }
-    .nav-logo span { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--white); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { color: rgba(0,0,0,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--green); }
-    .nav-cta { background: var(--green); color: var(--black) !important; padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 600 !important; }
-    .nav-cta:hover { background: #0bc673 !important; }
-
-    .page-hero {
-      padding: 10rem 3rem 4rem; max-width: 900px; margin: 0 auto; text-align: center;
-    }
-    .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(0,0,0,0.6); margin-bottom: 1rem; }
-    .page-hero h1 {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -0.04em; line-height: 0.95;
-      margin-bottom: 1.5rem;
-      color: #0a2e18;
-      animation: fadeUp 0.7s ease 0.2s both;
-    }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .page-hero p { color: rgba(0,0,0,0.65); font-size: 1.1rem; line-height: 1.7; animation: fadeUp 0.7s ease 0.4s both; }
-
     .candidates-grid {
       max-width: 1200px;
       margin: 0 auto;
@@ -58,26 +16,18 @@
     }
 
     .candidate-card {
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(9,168,101,0.08);
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(0,0,0,0.12);
       border-radius: 16px;
       overflow: hidden;
-      cursor: default;
-      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-      opacity: 0;
-      transform: translateY(40px) scale(0.95);
-    }
-
-    .candidate-card.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+      transition: all 0.3s;
     }
 
     .candidate-card:hover {
-      border-color: rgba(0,0,0,0.3);
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(9,168,101,0.2);
-      z-index: 2;
+      background: rgba(255,255,255,0.32);
+      border-color: rgba(0,0,0,0.25);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
     }
 
     .candidate-img-wrap {
@@ -91,13 +41,6 @@
       height: 100%;
       object-fit: cover;
       object-position: top;
-      transition: transform 0.5s ease;
-      filter: grayscale(15%);
-    }
-
-    .candidate-card:hover .candidate-img-wrap img {
-      transform: scale(1.06);
-      filter: grayscale(0%);
     }
 
     .seat-badge {
@@ -108,66 +51,58 @@
       color: #09a865;
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: 0.75rem;
-      padding: 0.2rem 0.55rem;
+      font-size: 0.72rem;
+      padding: 0.25rem 0.6rem;
       border-radius: 100px;
     }
 
-    .candidate-info {
-      padding: 1.1rem;
-    }
+    .candidate-info { padding: 1rem; }
 
     .candidate-seat {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 0.3rem;
+      color: rgba(0,0,0,0.55);
+      margin-bottom: 0.25rem;
     }
 
     .candidate-name {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 1rem;
       line-height: 1.2;
       color: #0a2e18;
     }
 
     .candidate-fullname {
       font-size: 0.75rem;
-      color: rgba(0,0,0,0.5);
-      margin-top: 0.2rem;
+      color: rgba(0,0,0,0.6);
+      margin-top: 0.25rem;
       line-height: 1.3;
     }
 
-    footer { background: rgba(0,0,0,0.15); border-top: 1px solid rgba(9,168,101,0.1); padding: 3rem; display: flex; align-items: center; justify-content: space-between; }
-    .footer-logo { display: flex; align-items: center; gap: 0.8rem; }
-    .footer-logo img { height: 36px; object-fit: contain; border-radius: 6px; }
-    .footer-logo span { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { color: rgba(0,0,0,0.55); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--green); }
-    .footer-copy { font-size: 0.8rem; color: rgba(0,0,0,0.35); }
-
-    @media (max-width: 1024px) { .candidates-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .candidates-grid { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem 4rem; gap: 1rem; }
-      .page-hero { padding-left: 1.5rem; padding-right: 1.5rem; }
-      footer { flex-direction: column; gap: 2rem; text-align: center; }
+    @media (max-width: 1024px) {
+      .candidates-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .candidates-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem 1.5rem 4rem;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <nav>
-    <a href="../index.html" class="nav-logo">
-      <img id="nav-logo" alt="logo">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Betri Menn">
       <span>Betri Menn</span>
     </a>
     <ul class="nav-links">
-      <li><a href="../index.html">Forsíða</a></li>
+      <li><a href="index.html">Forsíða</a></li>
       <li><a href="um-flokkinn.html">Um flokkinn</a></li>
       <li><a href="frambjodendur.html" class="active">Frambjóðendur</a></li>
       <li><a href="stefna.html">Stefna</a></li>
@@ -177,67 +112,147 @@
 
   <div class="page-hero">
     <p class="section-label">Liðið okkar</p>
-    <h1>Fram<span style="color:var(--green)">bjóðendur</span></h1>
+    <h1>Fram<span style="color:rgba(255,255,255,0.9)">bjóðendur</span></h1>
     <p>Við erum tíu einstaklingar sem trúum á sama markmið: betra Ísland fyrir alla.</p>
   </div>
 
-  <div class="candidates-grid" id="candidates-grid"></div>
+  <div class="candidates-grid">
+
+    <div class="candidate-card">
+      <div class="candidate-img-wrap">
+        <img src="assets/jon.jpeg" alt="Jón Bjartur Þorsteinsson">
+        <span class="seat-badge">1. sæti</span>
+      </div>
+      <div class="candidate-info">
+        <div class="candidate-seat">1. sæti</div>
+        <div class="candidate-name">Jón</div>
+        <div class="candidate-fullname">Jón Bjartur Þorsteinsson</div>
+      </div>
+    </div>
+
+    <div class="candidate-card">
+      <div class="candidate-img-wrap">
+        <img src="assets/oskar.jpeg" alt="Óskar Páll Adolfsson">
+        <span class="seat-badge">2. sæti</span>
+      </div>
+      <div class="candidate-info">
+        <div class="candidate-seat">2. sæti</div>
+        <div class="candidate-name">Óskar</div>
+        <div class="candidate-fullname">Óskar Páll Adolfsson</div>
+      </div>
+    </div>
+
+    <div class="candidate-card">
+      <div class="candidate-img-wrap">
+        <img src="assets/rafael.jpeg" alt="Rafael Bjarni Viktorsson">
+        <span class="seat-badge">3. sæti</span>
+      </div>
+      <div class="candidate-info">
+        <div class="candidate-seat">3. sæti</div>
+        <div class="candidate-name">Rafael</div>
+        <div class="candidate-fullname">Rafael Bjarni Viktorsson</div>
+      </div>
+    </div>
+
+    <div class="candidate-card">
+      <div class="candidate-img-wrap">
+        <img src="assets/aron.jpeg" alt="Aron Fannar Halldórsson">
+        <span class="seat-badge">4. sæti</span>
+      </div>
+      <div class="candidate-info">
+        <div class="candidate-seat">4. sæti</div>
+        <div class="candidate-name">Aron</div>
+        <div class="candidate-fullname">Aron Fannar Halldórsson</div>
+      </div>
+    </div>
+
+    <div class="candidate-card">
+      <div class="candidate-img-wrap">
+        <img src="assets/anton.jpeg" alt="Anton Bragi Víðisson">
+        <span class="seat-badge">5. sæti</span>
+      </div>
+      <div class="candidate-info">
+        <div class="candidate-seat">5. sæti</div>
+        <div class="candidate-name">Anton</div>
+        <div class="candidate-fullname">Anton Bragi Víðisson</div>
+      </div>
+    </div>
+
+    <div class="candidate-card">
+      <div class="candidate-img-wrap">
+        <img src="assets/ari.jpeg" alt="Ari Þór Axelsson">
+        <span class="seat-badge">6. sæti</span>
+      </div>
+      <div class="candidate-info">
+        <div class="candidate-seat">6. sæti</div>
+        <div class="candidate-name">Ari</div>
+        <div class="candidate-fullname">Ari Þór Axelsson</div>
+      </div>
+    </div>
+
+    <div class="candidate-card">
+      <div class="candidate-img-wrap">
+        <img src="assets/stefan.jpeg" alt="Stefán Karl Eiríksson">
+        <span class="seat-badge">7. sæti</span>
+      </div>
+      <div class="candidate-info">
+        <div class="candidate-seat">7. sæti</div>
+        <div class="candidate-name">Stefán</div>
+        <div class="candidate-fullname">Stefán Karl Eiríksson</div>
+      </div>
+    </div>
+
+    <div class="candidate-card">
+      <div class="candidate-img-wrap">
+        <img src="assets/almar.jpeg" alt="Almar Jökull Sigurðsson">
+        <span class="seat-badge">8. sæti</span>
+      </div>
+      <div class="candidate-info">
+        <div class="candidate-seat">8. sæti</div>
+        <div class="candidate-name">Almar</div>
+        <div class="candidate-fullname">Almar Jökull Sigurðsson</div>
+      </div>
+    </div>
+
+    <div class="candidate-card">
+      <div class="candidate-img-wrap">
+        <img src="assets/hlynur.jpeg" alt="Hlynur Lár Gunnarsson">
+        <span class="seat-badge">9. sæti</span>
+      </div>
+      <div class="candidate-info">
+        <div class="candidate-seat">9. sæti</div>
+        <div class="candidate-name">Hlynur</div>
+        <div class="candidate-fullname">Hlynur Lár Gunnarsson</div>
+      </div>
+    </div>
+
+    <div class="candidate-card">
+      <div class="candidate-img-wrap">
+        <img src="assets/ivan.jpeg" alt="Ivan Kovalenko">
+        <span class="seat-badge">10. sæti</span>
+      </div>
+      <div class="candidate-info">
+        <div class="candidate-seat">10. sæti</div>
+        <div class="candidate-name">Ivan</div>
+        <div class="candidate-fullname">Ivan Kovalenko</div>
+      </div>
+    </div>
+
+  </div>
 
   <footer>
     <div class="footer-logo">
-      <img id="footer-logo" alt="logo">
+      <img src="assets/logo.png" alt="Betri Menn">
       <span>Betri Menn</span>
     </div>
     <ul class="footer-links">
-      <li><a href="../index.html">Forsíða</a></li>
+      <li><a href="index.html">Forsíða</a></li>
       <li><a href="um-flokkinn.html">Um flokkinn</a></li>
       <li><a href="frambjodendur.html">Frambjóðendur</a></li>
       <li><a href="stefna.html">Stefna</a></li>
     </ul>
-    <p class="footer-copy">© 2025 Betri Menn &bull; X-B</p>
+    <p class="footer-copy">© 2025 Betri Menn • X-B</p>
   </footer>
 
-  <script>
-    document.getElementById('nav-logo').src = IMAGES.logo;
-    document.getElementById('footer-logo').src = IMAGES.logo;
-
-    const candidates = [
-      { seat: 1, firstName: 'Jón', fullName: 'Jón Bjartur Þorsteinsson', key: 'jon' },
-      { seat: 2, firstName: 'Óskar', fullName: 'Óskar Páll Adolfsson', key: 'oskar' },
-      { seat: 3, firstName: 'Rafael', fullName: 'Rafael Bjarni Viktorsson', key: 'rafael' },
-      { seat: 4, firstName: 'Aron', fullName: 'Aron Fannar Halldórsson', key: 'aron' },
-      { seat: 5, firstName: 'Anton', fullName: 'Anton Bragi Víðisson', key: 'anton' },
-      { seat: 6, firstName: 'Ari', fullName: 'Ari Þór Axelsson', key: 'ari' },
-      { seat: 7, firstName: 'Stefán', fullName: 'Stefán Karl Eiríksson', key: 'stefan' },
-      { seat: 8, firstName: 'Almar', fullName: 'Almar Jökull Sigurðsson', key: 'almar' },
-      { seat: 9, firstName: 'Hlynur', fullName: 'Hlynur Lár Gunnarsson', key: 'hlynur' },
-      { seat: 10, firstName: 'Ivan', fullName: 'Ivan Kovalenko', key: 'ivan' },
-    ];
-
-    const grid = document.getElementById('candidates-grid');
-    candidates.forEach((c, i) => {
-      const card = document.createElement('div');
-      card.className = 'candidate-card';
-      card.style.transitionDelay = (i * 0.07) + 's';
-      card.innerHTML = `
-        <div class="candidate-img-wrap">
-          <img src="${IMAGES[c.key]}" alt="${c.fullName}" loading="lazy">
-          <span class="seat-badge">${c.seat}. sæti</span>
-        </div>
-        <div class="candidate-info">
-          <div class="candidate-seat">${c.seat}. sæti</div>
-          <div class="candidate-name">${c.firstName}</div>
-          <div class="candidate-fullname">${c.fullName}</div>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
-    }, { threshold: 0.05 });
-
-    document.querySelectorAll('.candidate-card').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
