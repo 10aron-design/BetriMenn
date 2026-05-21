@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stefna — Betri Menn</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .policies-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 3rem 6rem;
+    }
+
+    .policy-item {
+      border-bottom: 1px solid rgba(0,0,0,0.15);
+    }
+
+    .policy-header {
+      display: flex; align-items: center; gap: 1.5rem;
+      padding: 1.8rem 0;
+      cursor: pointer; user-select: none;
+    }
+
+    .policy-icon-box {
+      width: 54px; height: 54px;
+      background: rgba(0,0,0,0.12);
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; flex-shrink: 0;
+    }
+    .policy-item.open .policy-icon-box { background: rgba(0,0,0,0.2); }
+
+    .policy-header-text { flex: 1; }
+    .policy-number {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(0,0,0,0.55); margin-bottom: 0.25rem;
+    }
+    .policy-header-title {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      letter-spacing: -0.02em; color: #0a2e18;
+    }
+
+    .policy-toggle {
+      width: 34px; height: 34px;
+      background: rgba(0,0,0,0.12);
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #0a2e18; font-size: 1.2rem; flex-shrink: 0;
+      transition: all 0.3s;
+    }
+    .policy-item.open .policy-toggle {
+      background: #0a2e18; color: #09a865;
+      transform: rotate(45deg);
+    }
+
+    .policy-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    .policy-item.open .policy-body { max-height: 700px; }
+
+    .policy-body-inner {
+      padding: 0 0 2rem 70px;
+      color: rgba(0,0,0,0.8);
+      font-size: 1rem; line-height: 1.8;
+    }
+    .policy-body-inner p + p { margin-top: 1rem; }
+    .policy-body-inner strong { color: #0a2e18; font-weight: 700; }
+
+    .policy-points { margin-top: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .policy-point { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.95rem; }
+    .policy-point::before { content: '→'; color: #0a2e18; flex-shrink: 0; font-weight: 700; }
+
+    .vote-banner {
+      background: #0a2e18;
+      padding: 5rem 3rem; text-align: center;
+    }
+    .vote-banner h2 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: #09a865; letter-spacing: -0.03em;
+    }
+    .vote-banner p { color: rgba(255,255,255,0.65); margin-top: 1rem; font-size: 1.1rem; }
+    .vote-banner .xbadge {
+      display: inline-block;
+      background: #09a865; color: #0a2e18;
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      padding: 0.9rem 3rem; border-radius: 16px;
+      margin-top: 2rem; letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 768px) {
+      .policies-container { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .policy-body-inner { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Betri Menn">
+      <span>Betri Menn</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Forsíða</a></li>
+      <li><a href="um-flokkinn.html">Um flokkinn</a></li>
+      <li><a href="frambjodendur.html">Frambjóðendur</a></li>
+      <li><a href="stefna.html" class="active">Stefna</a></li>
+      <li><a href="stefna.html" class="nav-cta">Settu X við B</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="section-label">Stefnumál okkar</p>
+    <h1>Hvað stöndum<br>við <span style="color:#ffffff">fyrir?</span></h1>
+    <p>Sex skýr stefnumál. Smelltu á hvert til að lesa meira.</p>
+  </div>
+
+  <div class="policies-container">
+
+    <div class="policy-item" id="loftslag">
+      <div class="policy-header" onclick="togglePolicy(this)">
+        <div class="policy-icon-box">🌿</div>
+        <div class="policy-header-text">
+          <div class="policy-number">Stefnumál 01</div>
+          <div class="policy-header-title">Hraðar loftslagsaðgerðir</div>
+        </div>
+        <div class="policy-toggle">+</div>
+      </div>
+      <div class="policy-body">
+        <div class="policy-body-inner">
+          <p>Við viljum byrja sterka stefnu á hröðum loftslagsaðgerðum. Þetta er stórt verkefni sem allir þurfa að taka þátt í.</p>
+          <div class="policy-points">
+            <div class="policy-point">Bílamál og samgöngur með minni kolefnissporinu</div>
+            <div class="policy-point">Meiri endurnýting á öllum sviðum</div>
+            <div class="policy-point">Minni matarsóun í heimilum og fyrirtækjum</div>
+            <div class="policy-point">Meiri notkun á grænni orku</div>
+            <div class="policy-point">Vernda náttúruna og halda Íslandi hreinu og fallegu</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="policy-item" id="husnaedi">
+      <div class="policy-header" onclick="togglePolicy(this)">
+        <div class="policy-icon-box">🏠</div>
+        <div class="policy-header-text">
+          <div class="policy-number">Stefnumál 02</div>
+          <div class="policy-header-title">Ódýrara húsnæði</div>
+        </div>
+        <div class="policy-toggle">+</div>
+      </div>
+      <div class="policy-body">
+        <div class="policy-body-inner">
+          <p>Mikið af ungu fólki getur ómögulega keypt sér hús vegna þess að fjárfestir kaupa mörg hús og verð hafa hækkað gríðarlega.</p>
+          <div class="policy-points">
+            <div class="policy-point">Takmarka kaup fjárfesta á íbúðum</div>
+            <div class="policy-point">Styðja við uppbyggingu á fleiri íbúðum</div>
+            <div class="policy-point">Gera það auðveldara fyrir ungt fólk að komast inn á húsnæðismarkaðinn</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="policy-item" id="heilbrigdi">
+      <div class="policy-header" onclick="togglePolicy(this)">
+        <div class="policy-icon-box">🏥</div>
+        <div class="policy-header-text">
+          <div class="policy-number">Stefnumál 03</div>
+          <div class="policy-header-title">Fjármögnuð opinber þjónusta</div>
+        </div>
+        <div class="policy-toggle">+</div>
+      </div>
+      <div class="policy-body">
+        <div class="policy-body-inner">
+          <p>Okkur finnst heilbrigðisþjónustan á Íslandi vera óásættanleg. Of fáir hjúkrunarfræðingar, erfitt að komast til læknis og biðtímar eru gríðalega langir.</p>
+          <div class="policy-points">
+            <div class="policy-point">Ráða fleiri hjúkrunarfræðinga og heilbrigðisstarfsfólk</div>
+            <div class="policy-point">Styttri biðtímar hjá læknum</div>
+            <div class="policy-point">Almennilega fjármögnun opinberrar þjónustu</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="policy-item" id="kynjarettlaeti">
+      <div class="policy-header" onclick="togglePolicy(this)">
+        <div class="policy-icon-box">⚖️</div>
+        <div class="policy-header-text">
+          <div class="policy-number">Stefnumál 04</div>
+          <div class="policy-header-title">Kynjaréttlæti</div>
+        </div>
+        <div class="policy-toggle">+</div>
+      </div>
+      <div class="policy-body">
+        <div class="policy-body-inner">
+          <p>Við viljum jafna út kynréttindi enn frekar. Vandamálið er ekki starfið sjálft heldur atvinnumöguleikar og laun.</p>
+          <div class="policy-points">
+            <div class="policy-point">Jöfn laun fyrir jafna vinnu</div>
+            <div class="policy-point">Jafnir atvinnumöguleikar fyrir öll kyn</div>
+            <div class="policy-point">Foreldrar fá að ráða hvernig þeir skipta fæðingarorlofi</div>
+            <div class="policy-point">Engar þvingaðar reglur sem skaða fjárhag fjölskyldna</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="policy-item" id="heilsa">
+      <div class="policy-header" onclick="togglePolicy(this)">
+        <div class="policy-icon-box">💪</div>
+        <div class="policy-header-text">
+          <div class="policy-number">Stefnumál 05</div>
+          <div class="policy-header-title">Heilbrigt líf</div>
+        </div>
+        <div class="policy-toggle">+</div>
+      </div>
+      <div class="policy-body">
+        <div class="policy-body-inner">
+          <p>Heilsa er lykilinn að góðu lífi. Það þarf að fræða krakka meira um heilsu vegna þess að margir borða bara rusl og hreyfa sig ekki.</p>
+          <div class="policy-points">
+            <div class="policy-point">Betri heilsufræðsla í skólum</div>
+            <div class="policy-point">Auðveldari aðgangur að rækt og sundlaugum</div>
+            <div class="policy-point">Stuðningur við útivist og náttúrutengingu</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="policy-item" id="landamaeri">
+      <div class="policy-header" onclick="togglePolicy(this)">
+        <div class="policy-icon-box">🛂</div>
+        <div class="policy-header-text">
+          <div class="policy-number">Stefnumál 06</div>
+          <div class="policy-header-title">Skynsamleg landamærastefna</div>
+        </div>
+        <div class="policy-toggle">+</div>
+      </div>
+      <div class="policy-body">
+        <div class="policy-body-inner">
+          <p>Við megum ekki bara hleypa hverjum sem er í landið. Við þurfum stjórn á landamærum.</p>
+          <p><strong>Aftur á móti</strong> eru löglegir innflytjendur rosalega mikilvægir fyrir Ísland. Stór hluti starfsmanna á sjúkrahúsum er útlendingar og þeir hafa hjálpað Íslandi gríðarlega að þróast.</p>
+          <div class="policy-points">
+            <div class="policy-point">Stjórnað landamæraferli með skýrum reglum</div>
+            <div class="policy-point">Velkomna þá sem leggja sitt að mörkum og borga skatta</div>
+            <div class="policy-point">Ganga úr skugga um að kerfin okkar séu ekki ofhlaðin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="vote-banner">
+    <h2>Góðir. Betri. Bestu Menn.</h2>
+    <p>Ísland á skilið betra. Við erum þar til.</p>
+    <div class="xbadge">Settu X við B</div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="logo.png" alt="Betri Menn">
+      <span>Betri Menn</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Forsíða</a></li>
+      <li><a href="um-flokkinn.html">Um flokkinn</a></li>
+      <li><a href="frambjodendur.html">Frambjóðendur</a></li>
+      <li><a href="stefna.html">Stefna</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 Betri Menn &bull; X-B</p>
+  </footer>
+
+  <script>
+    function togglePolicy(header) {
+      const item = header.closest('.policy-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.policy-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => {
+          target.classList.add('open');
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      }
+    }
+  </script>
+
+</body>
+</html>

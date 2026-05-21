@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Betri Menn</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+    }
+
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,0,0,0.15);
+      border: 1px solid rgba(0,0,0,0.2);
+      color: #0a2e18;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+      color: #0a2e18;
+    }
+
+    .hero h1 .light {
+      color: #ffffff;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: rgba(0,0,0,0.7);
+      margin-bottom: 3rem;
+      max-width: 500px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .stats-strip {
+      border-top: 1px solid rgba(0,0,0,0.15);
+      border-bottom: 1px solid rgba(0,0,0,0.15);
+      padding: 2rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      background: rgba(0,0,0,0.08);
+    }
+
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: #0a2e18;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.6);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    .content-section {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .policy-card {
+      background: rgba(255,255,255,0.25);
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 16px;
+      padding: 2rem;
+      text-decoration: none;
+      color: #0a2e18;
+      transition: all 0.3s;
+    }
+
+    .policy-card:hover {
+      background: rgba(255,255,255,0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    .policy-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .policy-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      color: #0a2e18;
+    }
+    .policy-card p {
+      font-size: 0.9rem;
+      color: rgba(0,0,0,0.7);
+      line-height: 1.6;
+    }
+    .policy-card .arrow {
+      display: inline-block;
+      color: #0a2e18;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-top: 1.2rem;
+    }
+
+    .candidate-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .candidate-thumb {
+      aspect-ratio: 3/4;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .candidate-thumb:hover { transform: translateY(-5px); }
+
+    .candidate-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+    }
+
+    .candidate-thumb-name {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1rem 0.5rem 0.6rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      text-align: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #fff;
+    }
+
+    .center-btn {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .slogan-banner {
+      background: #0a2e18;
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+    .slogan-text {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 6vw, 5rem);
+      color: #09a865;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .slogan-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 1rem;
+    }
+    .slogan-banner .btn-light { margin-top: 2rem; }
+
+    @media (max-width: 768px) {
+      .content-section { padding: 4rem 1.5rem; }
+      .policy-grid { grid-template-columns: 1fr; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; }
+      .candidate-strip { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Betri Menn">
+      <span>Betri Menn</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Forsíða</a></li>
+      <li><a href="um-flokkinn.html">Um flokkinn</a></li>
+      <li><a href="frambjodendur.html">Frambjóðendur</a></li>
+      <li><a href="stefna.html">Stefna</a></li>
+      <li><a href="stefna.html" class="nav-cta">Settu X við B</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <img src="logo.png" class="hero-logo" alt="Betri Menn">
+    <span class="hero-badge">Flokkurinn X-B &bull; Góðir, Betri, Bestu Menn</span>
+    <h1>Betri<br><span class="light">Menn</span></h1>
+    <p class="hero-tagline">Við trúum að Ísland geti orðið betra. Fyrir okkur öll.</p>
+    <div class="hero-buttons">
+      <a href="stefna.html" class="btn-primary">Skoða stefnuna →</a>
+      <a href="frambjodendur.html" class="btn-secondary">Sjá frambjóðendur</a>
+    </div>
+  </section>
+
+  <div class="stats-strip">
+    <div class="stat-item"><div class="stat-number">10</div><div class="stat-label">Frambjóðendur</div></div>
+    <div class="stat-item"><div class="stat-number">6</div><div class="stat-label">Stefnumál</div></div>
+    <div class="stat-item"><div class="stat-number">X-B</div><div class="stat-label">Flokksstafir</div></div>
+    <div class="stat-item"><div class="stat-number">1</div><div class="stat-label">Markmið</div></div>
+  </div>
+
+  <div class="content-section">
+    <p class="section-label">Stefnumál okkar</p>
+    <h2 class="section-title">Hvað stöndum<br>við fyrir?</h2>
+    <p style="color:rgba(0,0,0,0.7); max-width:500px; line-height:1.7;">Við höfum sex skýr stefnumál. Engin óræð loforð, aðeins raunveruleg verkefni.</p>
+
+    <div class="policy-grid">
+      <a href="stefna.html#loftslag" class="policy-card">
+        <div class="policy-icon">🌿</div>
+        <h3>Hraðar loftslagsaðgerðir</h3>
+        <p>Minni mengun, meiri endurnýting og betri samgöngur.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
+      <a href="stefna.html#husnaedi" class="policy-card">
+        <div class="policy-icon">🏠</div>
+        <h3>Ódýrara húsnæði</h3>
+        <p>Ungt fólk á rétt á því að geta keypt sér húsnæði.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
+      <a href="stefna.html#heilbrigdi" class="policy-card">
+        <div class="policy-icon">🏥</div>
+        <h3>Betri heilbrigðisþjónusta</h3>
+        <p>Of fáir hjúkrunarfræðingar og of langir biðtímar.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
+      <a href="stefna.html#kynjarettlaeti" class="policy-card">
+        <div class="policy-icon">⚖️</div>
+        <h3>Kynjaréttlæti</h3>
+        <p>Jöfn laun fyrir jafna vinnu og betri möguleikar fyrir öll kyn.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
+      <a href="stefna.html#heilsa" class="policy-card">
+        <div class="policy-icon">💪</div>
+        <h3>Heilbrigt líf</h3>
+        <p>Betri heilsufræði í skólum og aðgangur að rækt og útivist.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
+      <a href="stefna.html#landamaeri" class="policy-card">
+        <div class="policy-icon">🛂</div>
+        <h3>Skynsamleg landamærastefna</h3>
+        <p>Við viljum velkomna þá sem leggja sitt af mörkum.</p>
+        <span class="arrow">Lesa meira →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="content-section" style="padding-top:0">
+    <p class="section-label">Liðið okkar</p>
+    <h2 class="section-title">Frambjóðendurnir</h2>
+    <p style="color:rgba(0,0,0,0.7); max-width:500px; line-height:1.7;">Við erum tíu sterkir einstaklingar með eitt markmið: betra Ísland.</p>
+
+    <div class="candidate-strip">
+      <a href="frambjodendur.html" class="candidate-thumb">
+        <img src="jon.jpeg" alt="Jón">
+        <div class="candidate-thumb-name">Jón</div>
+      </a>
+      <a href="frambjodendur.html" class="candidate-thumb">
+        <img src="oskar.jpeg" alt="Óskar">
+        <div class="candidate-thumb-name">Óskar</div>
+      </a>
+      <a href="frambjodendur.html" class="candidate-thumb">
+        <img src="rafael.jpeg" alt="Rafael">
+        <div class="candidate-thumb-name">Rafael</div>
+      </a>
+      <a href="frambjodendur.html" class="candidate-thumb">
+        <img src="aron.jpeg" alt="Aron">
+        <div class="candidate-thumb-name">Aron</div>
+      </a>
+      <a href="frambjodendur.html" class="candidate-thumb">
+        <img src="anton.jpeg" alt="Anton">
+        <div class="candidate-thumb-name">Anton</div>
+      </a>
+    </div>
+
+    <div class="center-btn">
+      <a href="frambjodendur.html" class="btn-primary">Sjá alla frambjóðendur →</a>
+    </div>
+  </div>
+
+  <div class="slogan-banner">
+    <div class="slogan-text">Góðir. Betri. Bestu Menn.</div>
+    <p class="slogan-sub">Ísland á skilið betra. Við erum þar til.</p>
+    <a href="stefna.html" class="btn-light">Settu X við B →</a>
+  </div>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="logo.png" alt="Betri Menn">
+      <span>Betri Menn</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Forsíða</a></li>
+      <li><a href="um-flokkinn.html">Um flokkinn</a></li>
+      <li><a href="frambjodendur.html">Frambjóðendur</a></li>
+      <li><a href="stefna.html">Stefna</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 Betri Menn &bull; X-B</p>
+  </footer>
+
+</body>
+</html>
