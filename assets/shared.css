@@ -1,0 +1,260 @@
+/* ============================================
+   Betri Menn — Shared Styles
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+:root {
+  --green: #09a865;
+  --green-dark: #077a47;
+  --dark: #0a2e18;
+  --text: #0a2e18;
+  --text-muted: rgba(0, 0, 0, 0.65);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #09a865;
+  color: #0a2e18;
+  overflow-x: hidden;
+}
+
+/* ---- NAV ---- */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: rgba(9, 168, 101, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  height: 42px;
+  width: 42px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.nav-logo span {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #0a2e18;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: #0a2e18; font-weight: 700; }
+
+.nav-cta {
+  background: #0a2e18 !important;
+  color: #ffffff !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  font-weight: 600 !important;
+}
+
+.nav-cta:hover { background: #136e35 !important; }
+
+/* ---- BUTTONS ---- */
+.btn-primary {
+  background: #0a2e18;
+  color: #ffffff;
+  padding: 0.9rem 2.2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.25s;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: #136e35;
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #0a2e18;
+  padding: 0.9rem 2.2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid #0a2e18;
+  transition: all 0.25s;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background: rgba(10, 46, 24, 0.1);
+  transform: translateY(-3px);
+}
+
+.btn-light {
+  display: inline-block;
+  background: #09a865;
+  color: #0a2e18;
+  padding: 0.85rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.25s;
+}
+
+.btn-light:hover { background: #0bc47a; transform: translateY(-3px); }
+
+/* ---- LABELS & HEADINGS ---- */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  color: #0a2e18;
+}
+
+/* ---- PAGE HERO ---- */
+.page-hero {
+  padding: 10rem 3rem 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+  color: #0a2e18;
+}
+
+.page-hero p {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ---- DARK BANNER ---- */
+.dark-banner {
+  background: #0a2e18;
+  padding: 5rem 3rem;
+  text-align: center;
+}
+
+.dark-banner h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 5rem);
+  color: #09a865;
+  letter-spacing: -0.03em;
+}
+
+.dark-banner p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* ---- FOOTER ---- */
+footer {
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer-logo img {
+  height: 36px;
+  border-radius: 6px;
+}
+
+.footer-logo span {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #0a2e18;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.footer-links a {
+  color: rgba(0, 0, 0, 0.65);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.footer-links a:hover { color: #0a2e18; }
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .page-hero { padding-left: 1.5rem; padding-right: 1.5rem; }
+  footer { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
